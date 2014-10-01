@@ -1,13 +1,12 @@
 package br.com.catalogoshow.banco;
 
 import java.beans.PropertyVetoException;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import br.com.catalogshow.banco.ComandosSQL;
-import br.com.catalogshow.banco.DadosConexao;
+import br.com.catalogoshow.banco.ComandosSQL;
+import br.com.catalogoshow.banco.DadosConexao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
