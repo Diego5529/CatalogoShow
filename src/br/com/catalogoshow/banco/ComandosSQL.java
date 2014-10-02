@@ -22,7 +22,7 @@ public class ComandosSQL {
 		try {
 			InputStream fisSQL = getClass().getClassLoader()
 					.getResourceAsStream(
-							"br/com/catalogshow/banco/sql.properties");
+							"br/com/catalogoshow/banco/sql.properties");
 			this.getPropertiesSQL().load(fisSQL);
 			fisSQL.close();
 		} catch (IOException e) {

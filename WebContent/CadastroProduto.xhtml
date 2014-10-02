@@ -1,0 +1,73 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Novo Produto.</ui:define>
+
+	<ui:define name="corpo">
+		<h:outputScript library="js" name="campoData.js" target="head" />
+		<h:form id="formProdutos">
+			<p:messages autoUpdate="true" />
+
+			<h2>Novo Produto</h2>
+			<p:messages autoUpdate="true" closable="true" />
+			<p:toolbar style="margin-top: 20px">
+				<f:facet name="left">
+					<p:button value="Novo" outcome="CadastroProduto" />
+					<p:commandButton value="Salvar"
+						action="#{produtosBeans.saveProdutos}" id="botaoSalvar" />
+				</f:facet>
+				<f:facet name="right">
+					<p:commandButton value="Pesquisar"
+						action="#{produtosBeans.consultaProdutos()}" id="botaoPEsquisar" />
+				</f:facet>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+				<p:outputLabel value="Nome:" for="nomeProduto" />
+				<p:inputText id="nomeProduto"
+					value="#{produtosBeans.produtos.nomeProduto}" required="true"
+					maxlength="100" size="100">
+					<f:validateLength minimum="4" maximum="100" for="nomeProduto" />
+				</p:inputText>
+				<p:outputLabel value="Descrição:" for="descricaoProduto" />
+				<p:inputText id="descricaoProduto"
+					value="#{produtosBeans.produtos.descricaoProduto}" required="true"
+					maxlength="100" size="100">
+					<f:validateLength minimum="4" maximum="100" for="descricaoProduto" />
+				</p:inputText>
+				<p:outputLabel value="Categoria:" for="categoriaProduto" />
+				<p:selectOneMenu id="categoriaProduto"
+					value="#{produtosBeans.produtos.categoriaProduto}" required="true">
+					<f:selectItem itemLabel="Escolha" itemValue="" />
+					<f:selectItem itemLabel="UNISEX" itemValue="1" />
+					<f:selectItem itemLabel="INFANTIL" itemValue="2" />
+					<f:selectItem itemLabel="FEMININO" itemValue="3" />
+					<f:selectItem itemLabel="MASCULINO" itemValue="4" />
+				</p:selectOneMenu>
+				<p:outputLabel value="Tipo:" for="tipoProduto" />
+				<p:selectOneMenu id="tipoProduto"
+					value="#{produtosBeans.produtos.tipoProduto}" required="true">
+					<f:selectItem itemLabel="Escolha" itemValue="" />
+					<f:selectItem itemLabel="CALÇADO" itemValue="1" />
+					<f:selectItem itemLabel="MOCHILA" itemValue="2" />
+					<f:selectItem itemLabel="BOLSA" itemValue="3" />
+					<f:selectItem itemLabel="CHINELO" itemValue="4" />
+				</p:selectOneMenu>
+				<p:outputLabel value="Empresa:" for="empresaProduto" />
+				<p:selectOneMenu id="empresaProduto"
+					value="#{produtosBeans.produtos.empresaProduto}" required="true">
+					<f:selectItem itemLabel="Escolha" itemValue="" />
+					<f:selectItem itemLabel="X" itemValue="1" />
+					<f:selectItem itemLabel="Y" itemValue="2" />
+					<f:selectItem itemLabel="Z" itemValue="3" />
+					<f:selectItem itemLabel="W" itemValue="4" />
+				</p:selectOneMenu>
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

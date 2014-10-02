@@ -89,7 +89,7 @@ public class DadosConexao {
 		Properties properties = new Properties();
 		try {
 			InputStream fis = getClass().getClassLoader().getResourceAsStream(
-					"br/com/catalogshow/banco/jdbc.properties");
+					"br/com/catalogoshow/banco/jdbc.properties");
 			properties.load(fis);
 			fis.close();
 		} catch (IOException e) {
